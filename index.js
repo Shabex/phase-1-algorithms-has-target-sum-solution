@@ -1,13 +1,38 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+ const seenNumbers = {};
+
+ for(const number of array){
+   const compliment = target - number;
+  if(compliment in seenNumbers) return true;
+  seenNumbers[number] = true;
+ }
+  return false;
 }
+
+// function hasTargetSum(array, target) {
+//   for (let i=0; i< array.length; i++){
+// const compliment = target-array[i]
+//   for(let j = i+1; j<array.length; j++){
+//     if(array[j]===compliment) return true
+//   }
+// }
+
+//   return false
+// }
 
 /* 
   Write the Big O time complexity of your function here
+  Runtime: O(n^2)
+  space:0(n)
 */
 
 /* 
-  Add your pseudocode here
+  create an object to keep track of the numbers we've already seen
+  iterate through each  number in the array
+  for the current num, identify a compliment that adds to the target(comp=target-num)
+  check if any key on our object is the compliment
+  if so, return true
+  otherwise, add that number to the object
 */
 
 /*
